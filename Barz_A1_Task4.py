@@ -54,6 +54,10 @@ def create_key_square(key):
 
     return table
 
+<<<<<<< Updated upstream
+=======
+#encrypts each individual pair of text
+>>>>>>> Stashed changes
 def encrypt_pair(table,pair):
     letter1 = get_coord(table,pair[0])
     letter2 = get_coord(table,pair[1])
@@ -72,6 +76,7 @@ def get_coord(table,letter):
             if letter == column: 
                 return [table.index(row),table[table.index(row)].index(column)]         
 
+<<<<<<< Updated upstream
 
 
 table = create_key_square('JOHH') 
@@ -82,3 +87,21 @@ print(remove_duplicates('Hello world'))
 #print(create_key_square('IOHN'))
 #print(split_text('HelloWorld'))
 
+=======
+#formats ciphertext in str format
+def print_ciphertext(ciphertext):      
+    text = ''
+    for pair in ciphertext:
+        for letter in pair: 
+            text += letter
+    return text      
+
+keyword = input('Keyword: ')
+plaintext = input('Plaintext: ')
+table = create_key_square(keyword)
+ciphertext = encrypt_text(table,split_text(plaintext))
+print(split_text(plaintext))
+print(ciphertext)
+print(print_ciphertext(ciphertext))
+print(split_text(split_doubles('hello world')))
+>>>>>>> Stashed changes
