@@ -1,7 +1,9 @@
+from tabulate import tabulate
 uppercase = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'
 #Things to do: 
 # - decryption method
 # - clean up everything
+# - add ceasar and vigenere if you wanna
 
 #removes double occurances of a letter in a string (used for keywords and table creation)
 def remove_duplicates(string):
@@ -65,7 +67,7 @@ def encrypt_pair(table,pair):
         return [table[letter1[0]][letter2[1]],table[letter2[0]][letter1[1]]]
 
 #goes through each pair and encrypts it
-def encrypt_text(table,text):
+def playfair_encrypt_text(table,text):
     text = split_text(text)
     cipher_text = []
     for pair in text:
@@ -86,11 +88,11 @@ def print_ciphertext(ciphertext):
         for letter in pair: text += letter
     return text      
 
-
 keyword = input('Keyword: ')
 text = input('text: ')
 
 table = create_key_square(keyword)
-ciphertext = encrypt_text(table,text)
+ciphertext = playfair_encrypt_text(table,text)
 print(split_text(text))
 print(ciphertext)
+print(tabulate(table, tablefmt="grid"))
